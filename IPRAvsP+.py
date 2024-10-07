@@ -79,7 +79,8 @@ df = df[df['Czy KDW'] == 0]
 df['Rabat P+'] = df['Rabat Promocyjny'] / -100
 df
 
-    
+
+'''
 
     poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
     # Wykonanie left join, dodanie 'old_percent' do pliku 'ostatecznie'
