@@ -62,20 +62,18 @@ df = df[(df['Nazwa Promocji'].str.contains('P\+') | df['Nazwa Promocji'].str.con
 
 # Kolumna 'Skład (SPR,SGL)' - zostawiamy tylko 'SGL'
 df = df[df['Skład (SPR,SGL)'] == 'SGL']
-df
-'''
 
 # Kolumna 'Czy dopuszcza rabat kontraktowy' - zostawiamy tylko '1'
-df = df[df['Czy dopuszcza rabat kontraktowy'] == '1']
+df = df[df['Czy dopuszcza rabat kontraktowy'] == 1]
 
 # Kolumna 'Rodzaj warunku płatności' - zostawiamy tylko 'Standard'
 df = df[df['Rodzaj warunku płatności'] == 'Standard']
 
 # Kolumna 'Grupa klientów' - zostawiamy tylko '1'
-df = df[df['Grupa klientów'] == '1']
+df = df[df['Grupa klientów'] == 1]
 
 # Kolumna 'Czy KDW' - zostawiamy tylko '0'
-df = df[df['Czy KDW'] == '0']
+df = df[df['Czy KDW'] == 0]
 
 # Kolumna Rabat P+
 df['Rabat P+'] = df['Rabat Promocyjny'] / -100
