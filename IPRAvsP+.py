@@ -144,9 +144,9 @@ df_merged2 = df_merged2[columns_to_keep]
 
 # Dodanie kolumny 'IPRA WHA vs P+' z uwzględnieniem NaN
 df_merged2['IPRA WHA vs P+'] = np.where(
-    df_merged2['Rabat P+'].isna() | IPRA_WHA['Rabat IPRA'].isna(),  # Sprawdź, czy którakolwiek z kolumn ma NaN
+    df_merged2['Rabat P+'].isna() | df_merged2['Rabat IPRA'].isna(),  # Sprawdź, czy którakolwiek z kolumn ma NaN
     np.nan,  # Zwróć NaN, jeśli którakolwiek kolumna ma NaN
-    np.where(df_merged2['Rabat P+'] >= ['Rabat IPRA'], 1, 0)  # W przeciwnym razie wykonaj porównanie
+    np.where(df_merged2['Rabat P+'] >= df_merged2['Rabat IPRA'], 1, 0)  # W przeciwnym razie wykonaj porównanie
 )
 df_merged2
 
