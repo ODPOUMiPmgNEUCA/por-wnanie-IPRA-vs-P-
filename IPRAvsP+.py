@@ -79,7 +79,9 @@ df = df[df['Czy KDW'] == 0]
 # Kolumna Rabat P+
 df['Rabat Promocyjny'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
 
-df
+# Sprawdzenie wartości po konwersji
+st.write("Unikalne wartości w kolumnie 'Rabat Promocyjny' po konwersji:")
+st.write(df['Rabat Promocyjny'].unique())
 #df['Rabat P+'] = np.where(df['Rabat Promocyjny'].isna(), 0, df['Rabat Promocyjny'] / -100)
 df
 unique_rabat_promocyjny = df['Rabat Promocyjny'].unique()
