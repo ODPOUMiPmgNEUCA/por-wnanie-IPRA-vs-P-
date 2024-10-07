@@ -40,29 +40,15 @@ div[class*="stSelectbox"] label {
 """
 
 
-# File uploader dla CSV lub Excel
-uploaded_file = st.file_uploader("Wrzuć Raport promocyjny", type=["csv", "xlsx", "xls"])
 
-if uploaded_file is not None:
-    # Sprawdzenie, jaki typ pliku został załadowany
-    try:
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
-        else:
-            df = pd.read_excel(uploaded_file)
-        st.write(df.head())  # Wyświetlanie danych, jeśli są dostępne
-    except Exception as e:
-        st.error(f"Wystąpił błąd podczas wczytywania pliku: {e}")
-else:
-    st.warning("Proszę załadować plik przed próbą jego przetwarzania.")
-
-'''
 df = st.file_uploader(
     label = "Wrzuć Raport promocyjny"
 )
 if df:
     df = pd.read_csv(df)
     st.write(df.head())
+
+
 '''
 
 # Wybieranie tylko określonych kolumn z DataFrame
@@ -72,7 +58,7 @@ kolumny = [
     'Nazwa Materiału', 'Rabat P+'
 ]
 df
-'''
+
 
 # Filtruj kolumny w DataFrame
 df = df[kolumny]
