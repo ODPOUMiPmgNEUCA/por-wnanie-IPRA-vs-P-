@@ -120,6 +120,11 @@ if IPRA:
     else:
         st.write("Nie znaleziono arkuszy zawierających 'EO'.")
 
+IPRA_WHA
+EO
+
+
+
 
 '''
 IPRA = st.file_uploader(
