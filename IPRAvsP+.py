@@ -76,7 +76,7 @@ df = df[df['Grupa klientów'] == 1]
 df = df[df['Czy KDW'] == 0]
 
 # Kolumna Rabat P+
-df['Rabat P+'] = df['Rabat Promocyjny'] / -100
+df['Rabat P+'] = df['Rabat Promocyjny'] / (-100)
 df
 
 
