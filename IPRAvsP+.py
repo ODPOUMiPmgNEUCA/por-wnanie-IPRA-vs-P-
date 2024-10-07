@@ -62,6 +62,8 @@ df = df[(df['Nazwa Promocji'].str.contains('P\+') | df['Nazwa Promocji'].str.con
 
 # Kolumna 'Skład (SPR,SGL)' - zostawiamy tylko 'SGL'
 df = df[df['Skład (SPR,SGL)'] == 'SGL']
+df
+'''
 
 # Kolumna 'Czy dopuszcza rabat kontraktowy' - zostawiamy tylko '1'
 df = df[df['Czy dopuszcza rabat kontraktowy'] == '1']
@@ -79,7 +81,6 @@ df = df[df['Czy KDW'] == '0']
 df['Rabat P+'] = df['Rabat Promocyjny'] / -100
 df
 
-'''
     
 
     poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
