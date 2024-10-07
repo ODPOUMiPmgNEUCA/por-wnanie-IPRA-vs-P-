@@ -89,6 +89,39 @@ df
 
 
 ################################### tero IPRA
+
+# Umożliwienie użytkownikowi wgrania pliku
+IPRA = st.file_uploader(
+    label="Wrzuć ofertę IPRA", 
+    type=["xlsx"]  # Ogranicz do plików xlsx
+)
+
+# Sprawdzenie, czy plik został załadowany
+if IPRA:
+    # Wczytanie arkuszy z pliku Excel
+    xls = pd.ExcelFile(IPRA)
+    
+    # Wczytanie arkusza 'IPRA WHA'
+    IPRA_WHA = pd.read_excel(xls, sheet_name='IPRA WHA')
+    st.write("Zawartość arkusza 'IPRA WHA':")
+    st.write(IPRA_WHA.head())
+
+    # Filtracja arkuszy, które zawierają 'EO' w nazwie
+    eo_sheets = [sheet for sheet in xls.sheet_names if 'EO' in sheet]
+
+    # Sprawdzenie, czy jest arkusz zawierający 'EO'
+    if eo_sheets:
+        # Wczytanie arkusza, który zawiera 'EO'
+        EO = pd.read_excel(IPRA, sheet_name=eo_sheets[0])
+        
+        # Wyświetlenie pierwszych kilku wierszy
+        st.write(f"Zawartość arkusza '{eo_sheets[0]}':")
+        st.write(EO.head())
+    else:
+        st.write("Nie znaleziono arkuszy zawierających 'EO'.")
+
+
+'''
 IPRA = st.file_uploader(
     label = "Wrzuć ofertę IPRA"
 )
@@ -103,7 +136,7 @@ IPRA_WHA
 
 
 
-'''
+
     poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
     # Wykonanie left join, dodanie 'old_percent' do pliku 'ostatecznie'
     result = ostatecznie.merge(poprzedni[['Kod klienta', 'old_percent']], on='Kod klienta', how='left')
