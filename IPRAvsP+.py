@@ -45,7 +45,7 @@ df = st.file_uploader(
     label = "Wrzuć Raport promocyjny"
 )
 if df:
-    df = pd.read_excel(df)
+    df = pd.read_csv(df)
     st.write(df.head())
 
 df = df[df['Nazwa Promocji','Nr producenta sprzedażowego','Nazwa producenta sprzedażowego','Skład (SPR,SGL)','Czy dopuszcza rabat kontraktowy','Id Materiału','Nazwa Materiału','Rabat P+',
