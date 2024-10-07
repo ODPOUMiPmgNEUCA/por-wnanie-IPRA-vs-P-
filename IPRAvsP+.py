@@ -51,7 +51,10 @@ if df:
 df = df[df['Nazwa Promocji','Nr producenta sprzedażowego','Nazwa producenta sprzedażowego','Skład (SPR,SGL)','Czy dopuszcza rabat kontraktowy','Id Materiału','Nazwa Materiału','Rabat P+',
 'Cena z cennika głównego','identyfikator promocji','data obowiązywania promocji od','Data obowiązywania promocji do','Rodzaj warunku płatnosci','Ilość Klientów','Nazwa grupy promocyjnej','MPK',
 'Grupa klientów','Czy KDW']]
+
+df = df[(df['Nazwa promocji'].str.contains('P\+') | df['Nazwa promocji'].str.contains('PARTNER')) &  ~df['Nazwa promocji'].str.contains('WTP\+')]
 df
+
 
 '''
     
