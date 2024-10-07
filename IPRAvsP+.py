@@ -187,7 +187,10 @@ kIPRA = ['Indeks', 'Nazwa', 'Producent', 'data rozpoczęcia promocji', 'data zak
          'Id Materiału', 'Rabat P+', 'IPRA vs P+']
 
 
+EO_m
 
+
+'''
 # Wypisz brakujące kolumny
 if missing_columns:
     st.write("Brakujące kolumny w IPRA_WHA_m:")
@@ -205,7 +208,7 @@ EO_m
 
 
 
-'''
+
 
 IPRA = st.file_uploader(
     label = "Wrzuć ofertę IPRA"
