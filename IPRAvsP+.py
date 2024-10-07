@@ -61,13 +61,6 @@ df = df[(df['Nazwa promocji'].str.contains('P\+') | df['Nazwa promocji'].str.con
 df
 
 '''
-
-
-
-
-
-
-'''
     
 
     poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
