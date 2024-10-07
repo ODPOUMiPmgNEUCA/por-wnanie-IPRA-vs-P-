@@ -48,17 +48,12 @@ if df:
     df = pd.read_csv(df, sep=';')
     st.write(df.head())
 
-
-'''
-
 # Wybieranie tylko określonych kolumn z DataFrame
 kolumny = [
     'Nazwa Promocji', 'Nr producenta sprzedażowego', 'Nazwa producenta sprzedażowego',
     'Skład (SPR,SGL)', 'Czy dopuszcza rabat kontraktowy', 'Id Materiału', 
     'Nazwa Materiału', 'Rabat P+'
 ]
-df
-
 
 # Filtruj kolumny w DataFrame
 df = df[kolumny]
