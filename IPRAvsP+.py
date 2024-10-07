@@ -180,12 +180,16 @@ EO_m['EO vs P+'] = np.where(
     np.where(EO_m['Rabat EO'] >= EO_m['Rabat P+'], 1, 0)  # W przeciwnym razie wykonaj porównanie
 )
 
+
+st.write(IPRA_WHA_m.columns.tolist())
 kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat IPRA','Wyłączenie z rabatowania',
       'Ilość min.','RKMH','Uwaga','Rabat P+','EO vs P+']
 kIPRA = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat rozliczany z producentem','Rabat IPRA',
          'Wyłączenie z rabatowania','Ilość min.','Uwaga','RKMH','UWAGA','Rabat P+','IPRA vs P+']
 
-#IPRA_WHA_m = IPRA_WHA_m[kIPRA]
+
+'''
+IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO[kEO]
 
 IPRA_WHA_m
@@ -197,7 +201,7 @@ EO_m
 
 
 
-'''
+
 IPRA = st.file_uploader(
     label = "Wrzuć ofertę IPRA"
 )
