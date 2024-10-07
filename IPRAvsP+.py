@@ -67,7 +67,7 @@ df = df[df['Skład (SPR,SGL)'] == 'SGL']
 df = df[df['Czy dopuszcza rabat kontraktowy'] == '1']
 
 # Kolumna 'Rodzaj warunku płatności' - zostawiamy tylko 'Standard'
-df = df[df['Rodzaj warunku płatności'] == 'Standard']
+df = df[df['Rodzaj warunku płatnosci'] == 'Standard']
 
 # Kolumna 'Grupa klientów' - zostawiamy tylko '1'
 df = df[df['Grupa klientów'] == '1']
