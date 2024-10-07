@@ -77,7 +77,6 @@ df = df[df['Grupa klientów'] == 1]
 df = df[df['Czy KDW'] == 0]
 
 # Kolumna Rabat P+
-#df['Rabat Promocyjny'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
 # Oczyszczanie kolumny 'Rabat Promocyjny'
 df['Rabat Promocyjny'] = df['Rabat Promocyjny'].str.replace(',', '.')  # Zastąp przecinki kropkami, jeśli są
 df['Rabat Promocyjny'] = df['Rabat Promocyjny'].str.strip()  # Usuwanie białych znaków
@@ -88,14 +87,20 @@ df['Rabat Promocyjny1'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
 df
 #df['Rabat P+'] = np.where(df['Rabat Promocyjny'].isna(), 0, df['Rabat Promocyjny'] / -100)
 
+
+################################### tero IPRA
+IPRA = st.file_uploader(
+    label = "Wrzuć ofertę IPRA"
+)
+if df:
+    df = pd.read_excel(df)
+    st.write(df.head())
+
+
+
+
+
 '''
-df
-unique_rabat_promocyjny = df['Rabat Promocyjny'].unique()
-unique_rabat_promocyjny
-
-
-
-
     poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
     # Wykonanie left join, dodanie 'old_percent' do pliku 'ostatecznie'
     result = ostatecznie.merge(poprzedni[['Kod klienta', 'old_percent']], on='Kod klienta', how='left')
