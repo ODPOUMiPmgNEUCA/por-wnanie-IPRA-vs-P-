@@ -181,9 +181,9 @@ EO_m['EO vs P+'] = np.where(
 )
 
 kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat IPRA','Wyłączenie z rabatowania',
-      'Ilość min.','RKMH','Uwaga','Rabat P+','']
+      'Ilość min.','RKMH','Uwaga','Rabat P+','EO vs P+']
 kIPRA = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat rozliczany z producentem','Rabat IPRA',
-         'Wyłączenie z rabatowania','Ilość min.','Uwaga','RKMH','UWAGA','Rabat P+',]
+         'Wyłączenie z rabatowania','Ilość min.','Uwaga','RKMH','UWAGA','Rabat P+','IPRA vs P+']
 
 IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO[kEO]
