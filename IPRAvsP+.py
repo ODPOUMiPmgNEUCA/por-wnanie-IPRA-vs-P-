@@ -59,6 +59,7 @@ kolumny = [
 # Filtruj kolumny w DataFrame
 df = df[kolumny]
 df = df[(df['Nazwa Promocji'].str.contains('P\+') | df['Nazwa Promocji'].str.contains('PARTNER')) &  ~df['Nazwa Promocji'].str.contains('WTP\+')]
+df
 
 # Kolumna 'Skład (SPR,SGL)' - zostawiamy tylko 'SGL'
 df = df[df['Skład (SPR,SGL)'] == 'SGL']
