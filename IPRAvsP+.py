@@ -45,7 +45,7 @@ df = st.file_uploader(
     label = "Wrzuć Raport promocyjny"
 )
 if df:
-    df = pd.read_csv(df)
+    df = pd.read_csv(df, sep='')
     st.write(df.head())
 
 
