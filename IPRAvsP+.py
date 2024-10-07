@@ -92,9 +92,9 @@ df
 IPRA = st.file_uploader(
     label = "Wrzuć ofertę IPRA"
 )
-if df:
-    df = pd.read_excel(df)
-    st.write(df.head())
+if IPRA:
+    IPRA = pd.read_excel(IPRA)
+    st.write(IPRA.head())
 
 
 
