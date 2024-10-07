@@ -41,18 +41,20 @@ div[class*="stSelectbox"] label {
 
 
 # File uploader dla CSV lub Excel
-uploaded_file = st.file_uploader(
-    label="Wrzuć Raport promocyjny",
-    type=["csv", "xlsx", "xls"]  # Obsługa CSV i plików Excel
-)
+uploaded_file = st.file_uploader("Wrzuć Raport promocyjny", type=["csv", "xlsx", "xls"])
 
-# Sprawdzanie czy plik został wrzucony
 if uploaded_file is not None:
-    # Sprawdzenie typu pliku na podstawie rozszerzenia
-    if uploaded_file.name.endswith('.csv'):
-        df = pd.read_csv(uploaded_file)
-    else:
-        df = pd.read_excel(uploaded_file)
+    # Sprawdzenie, jaki typ pliku został załadowany
+    try:
+        if uploaded_file.name.endswith('.csv'):
+            df = pd.read_csv(uploaded_file)
+        else:
+            df = pd.read_excel(uploaded_file)
+        st.write(df.head())  # Wyświetlanie danych, jeśli są dostępne
+    except Exception as e:
+        st.error(f"Wystąpił błąd podczas wczytywania pliku: {e}")
+else:
+    st.warning("Proszę załadować plik przed próbą jego przetwarzania.")
 
 '''
 df = st.file_uploader(
