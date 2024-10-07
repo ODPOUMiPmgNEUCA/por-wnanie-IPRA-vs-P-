@@ -141,6 +141,7 @@ columns_to_keep = ['Nazwa Promocji', 'Nr producenta sprzedażowego', 'Nazwa prod
     'Ilość Klientów','Nazwa grupy promocyjnej','MPK','Grupa klientów','Czy KDW'
 ]
 df_merged2 = df_merged2[columns_to_keep]
+df_merged2['IPRA WHA vs P+'] = np.where(df_merged2['Rabat P+'] >= EO['Rabat EO'].values, 1, 0)
 df_merged2
 
 
