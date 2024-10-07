@@ -96,6 +96,8 @@ if IPRA:
     IPRA_WHA = pd.read_excel(IPRA, sheet_name = 'IPRA WHA')
     st.write(IPRA_WHA.head())
 
+IPRA_WHA
+
 
 
 
