@@ -136,6 +136,11 @@ EO = EO.rename(columns={'Rabat IPRA': 'Rabat EO'})
 
 df_merged = df.merge(IPRA_WHA[['Indeks', 'Rabat IPRA']], left_on='Id Materiału', right_on='Indeks', how='left')
 df_merged2 = df_merged.merge(EO[['Indeks', 'Rabat EO']], left_on='Id Materiału', right_on='Indeks', how='left')
+columns_to_keep = ['Nazwa Promocji', 'Nr producenta sprzedażowego', 'Nazwa producenta sprzedażowego', 'Skład (SPR,SGL)', 'Czy dopuszcza rabat kontraktowy', 'Id Materiału', 
+    'Nazwa Materiału', 'Rabat P+','Rabat IPRA','Rabat EO','Cena z cennika głównego','identyfikator promocji','Data obowiązywania promocji od','Data obowiązywania promocji do','Rodzaj warunku płatności',
+    'Ilość Klientów','Nazwa grupy promocyjnej','MPK','Grupa klientów','Czy KDW'
+]
+df_merged2 = df_merged2[columns_to_keep]
 df_merged2
 
 
