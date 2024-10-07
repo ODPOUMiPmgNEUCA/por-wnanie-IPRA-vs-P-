@@ -197,6 +197,7 @@ if missing_columns:
     st.write(missing_columns)
 else:
     st.write("Wszystkie kolumny z kIPRA są obecne w IPRA_WHA_m.")
+'''
 
 IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO[kEO]
