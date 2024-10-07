@@ -81,6 +81,7 @@ df = df[df['Czy KDW'] == 0]
 
 # Sprawdzenie wartości po konwersji
 st.write("Typ danych w kolumnie 'Rabat Promocyjny':", df['Rabat Promocyjny'].dtype)
+df['Rabat Promocyjny1'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
 #df['Rabat P+'] = np.where(df['Rabat Promocyjny'].isna(), 0, df['Rabat Promocyjny'] / -100)
 
 '''
