@@ -52,7 +52,7 @@ if df:
 kolumny = [
     'Nazwa Promocji', 'Nr producenta sprzedażowego', 'Nazwa producenta sprzedażowego',
     'Skład (SPR,SGL)', 'Czy dopuszcza rabat kontraktowy', 'Id Materiału', 
-    'Nazwa Materiału', 'Rabat P+'
+    'Nazwa Materiału', 'Rabat Promocyjny'
 ]
 
 # Filtruj kolumny w DataFrame
