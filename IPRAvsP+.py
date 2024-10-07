@@ -94,7 +94,7 @@ IPRA = st.file_uploader(
 )
 if IPRA:
     IPRA_WHA = pd.read_excel(IPRA, sheet_name = 'IPRA WHA')
-    st.write(IPRA.head())
+    st.write(IPRA_WHA.head())
 
 
 
