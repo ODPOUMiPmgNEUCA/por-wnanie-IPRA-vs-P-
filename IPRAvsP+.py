@@ -181,11 +181,14 @@ EO_m['EO vs P+'] = np.where(
 )
 
 
-st.write(IPRA_WHA_m.columns.tolist())
+kolumny_lista = ", ".join(f"'{kolumna}'" for kolumna in IPRA_WHA_m.columns)
+st.write(kolumny_lista)st.write(IPRA_WHA_m.columns.tolist())
 kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat IPRA','Wyłączenie z rabatowania',
       'Ilość min.','RKMH','Uwaga','Rabat P+','EO vs P+']
 kIPRA = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat rozliczany z producentem','Rabat IPRA',
          'Wyłączenie z rabatowania','Ilość min.','Uwaga','RKMH','UWAGA','Rabat P+','IPRA vs P+']
+
+
 
 
 '''
