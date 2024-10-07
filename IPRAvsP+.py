@@ -165,8 +165,32 @@ df_merged2
 ##### IPRA
 IPRA_WHA_m = IPRA_WHA.merge(df[['Id Materiału','Rabat P+']], left_on='Indeks', right_on='Id Materiału', how='left')
 EO_m = EO.merge(df[['Id Materiału','Rabat P+']], left_on='Indeks', right_on='Id Materiału', how='left')
+
+
+IPRA_WHA_m['IPRA vs P+'] = np.where(
+    IPRA_WHA_m['Rabat IPRA'].isna() | IPRA_WHA_m['Rabat P+'].isna(),  # Sprawdź, czy którakolwiek z kolumn ma NaN
+    np.nan,  # Zwróć NaN, jeśli którakolwiek kolumna ma NaN
+    np.where(IPRA_WHA_m['Rabat IPRA'] >= df_merged2['Rabat P+'], 1, 0)  # W przeciwnym razie wykonaj porównanie
+)
+
+
+EO_m['EO vs P+'] = np.where(
+    EO_m['Rabat EO'].isna() | EO_m['Rabat P+'].isna(),  # Sprawdź, czy którakolwiek z kolumn ma NaN
+    np.nan,  # Zwróć NaN, jeśli którakolwiek kolumna ma NaN
+    np.where(EO_m['Rabat EO'] >= EO_m['Rabat P+'], 1, 0)  # W przeciwnym razie wykonaj porównanie
+)
+
+kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat IPRA','Wyłączenie z rabatowania',
+      'Ilość min.','RKMH','Uwaga','Rabat P+','']
+kIPRA = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat rozliczany z producentem','Rabat IPRA',
+         'Wyłączenie z rabatowania','Ilość min.','Uwaga','RKMH','UWAGA','Rabat P+',]
+
+IPRA_WHA_m = IPRA_WHA_m[kIPRA]
+EO_m = EO[kEO]
+
 IPRA_WHA_m
 EO_m
+
 
 
 
