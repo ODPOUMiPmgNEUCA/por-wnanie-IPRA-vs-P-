@@ -59,7 +59,7 @@ kolumny = [
 # Filtruj kolumny w DataFrame
 df = df[kolumny]
 df = df[(df['Nazwa Promocji'].str.contains('P\+') | df['Nazwa Promocji'].str.contains('PARTNER')) &  ~df['Nazwa Promocji'].str.contains('WTP\+')]
-df
+
 
 # Kolumna 'Skład (SPR,SGL)' - zostawiamy tylko 'SGL'
 df = df[df['Skład (SPR,SGL)'] == 'SGL']
@@ -85,7 +85,9 @@ df['Rabat Promocyjny'] = df['Rabat Promocyjny'].str.strip()  # Usuwanie białych
 st.write("Typ danych w kolumnie 'Rabat Promocyjny':", df['Rabat Promocyjny'].dtype)
 df['Rabat Promocyjny1'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
 df['Rabat P+'] = np.where(df['Rabat Promocyjny1'].isna(), 0, df['Rabat Promocyjny1'] / -100)
-df
+
+
+
 
 
 ################################### tero IPRA
@@ -120,8 +122,26 @@ if IPRA:
     else:
         st.write("Nie znaleziono arkuszy zawierających 'EO'.")
 
-IPRA_WHA
-EO
+
+################ PORÓWNANIE
+IPRA_WHA = IPRA_WHA.sort_values(by = 'Rabat IPRA',ascending=False)
+EO = EO.sort_values(by = 'Rabat IPRA', ascending = False)
+df = df.sort_values(by='Rabat P+', ascending=False)
+
+#duplikaty
+df = df.drop_duplicates(subset='Id Materiału')
+IPRA_WHA = IPRA_WHA.drop_duplicates(subset='Indeks')
+EO = EO.drop_duplicates(subset='Indeks')
+EO = EO.rename(columns={'Rabat IPRA': 'Rabat EO'})
+
+df_merged = df.merge(IPRA_WHA[['Indeks', 'Rabat IPRA']], left_on='Id Materiału', right_on='Indeks', how='left')
+df_merged2 = df_merged.merge(EO[['Indeks', 'Rabat EO']], left_on='Id Materiału', right_on='Indeks', how='left')
+df_merged2
+
+
+
+
+
 
 
 
