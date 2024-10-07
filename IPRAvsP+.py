@@ -78,6 +78,9 @@ df = df[df['Czy KDW'] == 0]
 
 # Kolumna Rabat P+
 #df['Rabat Promocyjny'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
+# Oczyszczanie kolumny 'Rabat Promocyjny'
+df['Rabat Promocyjny'] = df['Rabat Promocyjny'].str.replace(',', '.')  # Zastąp przecinki kropkami, jeśli są
+df['Rabat Promocyjny'] = df['Rabat Promocyjny'].str.strip()  # Usuwanie białych znaków
 
 # Sprawdzenie wartości po konwersji
 st.write("Typ danych w kolumnie 'Rabat Promocyjny':", df['Rabat Promocyjny'].dtype)
