@@ -163,8 +163,8 @@ df_merged2
 
 
 ##### IPRA
-IPRA_WHA_m = IPRA_WHA.merge(df[['Id materiału','Rabat P+']], left_on='Indeks', right_on='Id materiału', how='left')
-EO_m = EO.merge(df[['Id materiału','Rabat P+']], left_on='Indeks', right_on='Id materiału', how='left')
+IPRA_WHA_m = IPRA_WHA.merge(df[['Id Materiału','Rabat P+']], left_on='Indeks', right_on='Id Materiału', how='left')
+EO_m = EO.merge(df[['Id Materiału','Rabat P+']], left_on='Indeks', right_on='Id materiału', how='left')
 IPRA_WHA_m
 EO_m
 
