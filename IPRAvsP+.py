@@ -77,7 +77,7 @@ df = df[df['Grupa klientów'] == 1]
 df = df[df['Czy KDW'] == 0]
 
 # Kolumna Rabat P+
-df['Rabat Promocyjny'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
+#df['Rabat Promocyjny'] = pd.to_numeric(df['Rabat Promocyjny'], errors='coerce')
 df['Rabat P+'] = np.where(df['Rabat Promocyjny'].isna(), 0, df['Rabat Promocyjny'] / -100)
 df
 unique_rabat_promocyjny = df['Rabat Promocyjny'].unique()
