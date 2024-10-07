@@ -154,7 +154,11 @@ df_merged2['EO vs P+'] = np.where(
     np.where(df_merged2['Rabat P+'] >= df_merged2['Rabat EO'], 1, 0)  # W przeciwnym razie wykonaj porównanie
 )
 
-
+kolumny = ['Nazwa Promocji', 'Nr producenta sprzedażowego', 'Nazwa producenta sprzedażowego', 'Skład (SPR,SGL)', 'Czy dopuszcza rabat kontraktowy', 'Id Materiału', 
+    'Nazwa Materiału', 'Rabat P+','Rabat IPRA','Rabat EO','IPRA WHA vs P+','EO vs P+','Cena z cennika głównego','identyfikator promocji','Data obowiązywania promocji od','Data obowiązywania promocji do','Rodzaj warunku płatności',
+    'Ilość Klientów','Nazwa grupy promocyjnej','MPK','Grupa klientów','Czy KDW'
+]
+df_merged2 = df_merged2[kolumny]
 df_merged2
 
 
