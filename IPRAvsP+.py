@@ -170,7 +170,7 @@ EO_m = EO.merge(df[['Id Materiału','Rabat P+']], left_on='Indeks', right_on='Id
 IPRA_WHA_m['IPRA vs P+'] = np.where(
     IPRA_WHA_m['Rabat IPRA'].isna() | IPRA_WHA_m['Rabat P+'].isna(),  # Sprawdź, czy którakolwiek z kolumn ma NaN
     np.nan,  # Zwróć NaN, jeśli którakolwiek kolumna ma NaN
-    np.where(IPRA_WHA_m['Rabat IPRA'] >= df_merged2['Rabat P+'], 1, 0)  # W przeciwnym razie wykonaj porównanie
+    np.where(IPRA_WHA_m['Rabat IPRA'] >= IPRA_WHA_m['Rabat P+'], 1, 0)  # W przeciwnym razie wykonaj porównanie
 )
 
 
