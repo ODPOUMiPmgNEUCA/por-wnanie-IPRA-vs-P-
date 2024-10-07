@@ -187,26 +187,9 @@ kIPRA = ['Indeks', 'Nazwa', 'Producent', 'data rozpoczęcia promocji', 'data zak
          'Id Materiału', 'Rabat P+', 'IPRA vs P+']
 
 
-IPRA_WHA_m
-
-
-'''
-# Wypisz brakujące kolumny
-if missing_columns:
-    st.write("Brakujące kolumny w IPRA_WHA_m:")
-    st.write(missing_columns)
-else:
-    st.write("Wszystkie kolumny z kIPRA są obecne w IPRA_WHA_m.")
-'''
 
 IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO_m[kEO]
-
-IPRA_WHA_m
-EO_m
-
-
-
 
 
 
@@ -220,50 +203,43 @@ if IPRA:
 
 IPRA_WHA
 
+# Tworzenie pliku Excel z dwoma arkuszami
+excel_file1 = io.BytesIO()
+with pd.ExcelWriter(excel_file1, engine='xlsxwriter') as writer:
+    # Zapisanie IPRA_WHA_m do arkusza o nazwie "IPRA WHA"
+    IPRA_WHA_m.to_excel(writer, index=False, sheet_name='IPRA WHA')
+    
+    # Zapisanie EO_m do arkusza o nazwie "EO"
+    EO_m.to_excel(writer, index=False, sheet_name='EO')
+
+# Resetowanie wskaźnika do początku pliku
+excel_file1.seek(0)
+
+# Umożliwienie pobrania pliku Excel
+st.download_button(
+    label='Pobierz',
+    data=excel_file1,
+    file_name='IPRA vs P+.xlsx',
+    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+)
+
+# Tworzenie drugiego pliku Excel z arkuszem P+ vs IPRA
+excel_file2 = io.BytesIO()
+with pd.ExcelWriter(excel_file2, engine='xlsxwriter') as writer:
+    # Zapisanie df_m do arkusza o nazwie "P+ vs IPRA"
+    df_merged2.to_excel(writer, index=False, sheet_name='P+ vs IPRA')
+
+# Resetowanie wskaźnika do początku pliku
+excel_file2.seek(0)
+
+# Umożliwienie pobrania pliku Excel
+st.download_button(
+    label='Pobierz P+ vs IPRA',
+    data=excel_file2,
+    file_name='P_vs_IPRA.xlsx',
+    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+)
 
 
 
 
-'''
-
-
-    poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
-    # Wykonanie left join, dodanie 'old_percent' do pliku 'ostatecznie'
-    result = ostatecznie.merge(poprzedni[['Kod klienta', 'old_percent']], on='Kod klienta', how='left')
-    result['old_percent'] = result['old_percent'].fillna(0)
-    result['Czy dodać'] = result.apply(lambda row: 'DODAJ' if row['max_percent'] > row['old_percent'] else '', axis=1)
-    st.write('Kliknij aby pobrać plik z kodami, które kody należy dodać')
-
-    excel_file1 = io.BytesIO()
-    with pd.ExcelWriter(excel_file1, engine='xlsxwriter') as writer:
-        result.to_excel(writer, index=False, sheet_name='Sheet1')
-    excel_file1.seek(0)  # Resetowanie wskaźnika do początku pliku
-
-    # Umożliwienie pobrania pliku Excel
-    st.download_button(
-        label='Pobierz',
-        data=excel_file1,
-        file_name='czy_dodac.xlsx',
-        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    )
-
-    result = result.drop(columns=['old_percent', 'Czy dodać'])
-
-
-    st.write('Kliknij, aby pobrać plik z formułą max do następnego monitoringu')
-    excel_file2 = io.BytesIO()
-    with pd.ExcelWriter(excel_file2, engine='xlsxwriter') as writer:
-        result.to_excel(writer, index=False, sheet_name='Sheet1')
-    excel_file1.seek(0)  # Resetowanie wskaźnika do początku pliku
-
-    # Umożliwienie pobrania pliku Excel
-    st.download_button(
-        label='Pobierz nowy plik FORMUŁA MAX',
-        data=excel_file2,
-        file_name='formula_max.xlsx',
-        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    )
-
-
-
-'''
