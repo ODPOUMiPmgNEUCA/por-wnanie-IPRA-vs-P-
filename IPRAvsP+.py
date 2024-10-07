@@ -217,7 +217,7 @@ excel_file1.seek(0)
 
 # Umożliwienie pobrania pliku Excel
 st.download_button(
-    label='Pobierz',
+    label='Pobierz IPRA vs P+',
     data=excel_file1,
     file_name='IPRA vs P+.xlsx',
     mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
