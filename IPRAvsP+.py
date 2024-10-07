@@ -57,7 +57,7 @@ kolumny = [
 
 # Filtruj kolumny w DataFrame
 df = df[kolumny]
-df = df[(df['Nazwa promocji'].str.contains('P\+') | df['Nazwa promocji'].str.contains('PARTNER')) &  ~df['Nazwa promocji'].str.contains('WTP\+')]
+df = df[(df['Nazwa Promocji'].str.contains('P\+') | df['Nazwa Promocji'].str.contains('PARTNER')) &  ~df['Nazwa Promocji'].str.contains('WTP\+')]
 df
 
 '''
