@@ -185,13 +185,10 @@ kolumny_lista = ", ".join(f"'{kolumna}'" for kolumna in EO_m.columns)
 st.write(kolumny_lista)
 kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat IPRA','Wyłączenie z rabatowania',
       'Ilość min.','RKMH','Uwaga','Rabat P+','EO vs P+']
-kIPRA = ['Indeks', 'Nazwa', 'Producent', 'data rozpoczęcia promocji', 'data zakończenia promocji', 'ID promocji', 'Rabat rozliczany z producentem', 'Rabat IPRA', 'Wyłączenie z rabatowania', 
-         'Ilość min.', 'Uwaga', 'RKMH', 'UWAGA ', 'Id Materiału', 'Rabat P+', 'IPRA vs P+']
+kIPRA = ['Indeks', 'Nazwa', 'Producent', 'data rozpoczęcia promocji', 'data zakończenia promocji', 'ID promocji', 'Rabat EO', 'Wyłączenie z rabatowania', 'Ilość min.', 'RKMH', 'Uwaga', 
+         'Id Materiału', 'Rabat P+', 'EO vs P+']
 
 
-
-
-'''
 IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO[kEO]
 
@@ -202,7 +199,7 @@ EO_m
 
 
 
-
+'''
 
 
 IPRA = st.file_uploader(
