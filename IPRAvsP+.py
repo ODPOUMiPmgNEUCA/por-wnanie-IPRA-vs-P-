@@ -184,12 +184,9 @@ EO_m['EO vs P+'] = np.where(
 kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat IPRA','Wyłączenie z rabatowania',
       'Ilość min.','RKMH','Uwaga','Rabat P+','EO vs P+']
 kIPRA = ['Indeks', 'Nazwa', 'Producent', 'data rozpoczęcia promocji', 'data zakończenia promocji', 'ID promocji', 'Rabat EO', 'Wyłączenie z rabatowania', 'Ilość min.', 'RKMH', 'Uwaga', 
-         'Id Materiału', 'Rabat P+', 'EO vs P+']
+         'Id Materiału', 'Rabat P+', 'IPRA vs P+']
 
 
-
-# Zakładając, że masz kIPRA i IPRA_WHA_m
-missing_columns = [col for col in kIPRA if col not in IPRA_WHA_m.columns]
 
 # Wypisz brakujące kolumny
 if missing_columns:
@@ -198,7 +195,6 @@ if missing_columns:
 else:
     st.write("Wszystkie kolumny z kIPRA są obecne w IPRA_WHA_m.")
 
-'''
 IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO[kEO]
 
@@ -209,7 +205,7 @@ EO_m
 
 
 
-
+'''
 
 IPRA = st.file_uploader(
     label = "Wrzuć ofertę IPRA"
