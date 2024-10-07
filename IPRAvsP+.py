@@ -40,14 +40,28 @@ div[class*="stSelectbox"] label {
 """
 
 
+# File uploader dla CSV lub Excel
+uploaded_file = st.file_uploader(
+    label="Wrzuć Raport promocyjny",
+    type=["csv", "xlsx", "xls"]  # Obsługa CSV i plików Excel
+)
 
+# Sprawdzanie czy plik został wrzucony
+if uploaded_file is not None:
+    # Sprawdzenie typu pliku na podstawie rozszerzenia
+    if uploaded_file.name.endswith('.csv'):
+        df = pd.read_csv(uploaded_file)
+    else:
+        df = pd.read_excel(uploaded_file)
+
+'''
 df = st.file_uploader(
     label = "Wrzuć Raport promocyjny"
 )
 if df:
     df = pd.read_csv(df)
     st.write(df.head())
-
+'''
 df = df[df['Nazwa Promocji','Nr producenta sprzedażowego','Nazwa producenta sprzedażowego','Skład (SPR,SGL)','Czy dopuszcza rabat kontraktowy','Id Materiału','Nazwa Materiału','Rabat P+',
 'Cena z cennika głównego','identyfikator promocji','data obowiązywania promocji od','Data obowiązywania promocji do','Rodzaj warunku płatnosci','Ilość Klientów','Nazwa grupy promocyjnej','MPK',
 'Grupa klientów','Czy KDW']]
