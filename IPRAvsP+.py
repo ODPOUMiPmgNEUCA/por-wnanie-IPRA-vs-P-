@@ -200,7 +200,7 @@ else:
 '''
 
 IPRA_WHA_m = IPRA_WHA_m[kIPRA]
-EO_m = EO[kEO]
+EO_m = EO_m[kEO]
 
 IPRA_WHA_m
 EO_m
