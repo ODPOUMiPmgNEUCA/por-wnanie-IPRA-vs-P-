@@ -185,7 +185,7 @@ kEO = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończe
 kIPRA = ['Indeks','Nazwa','Producent','data rozpoczęcia promocji','data zakończenia promocji','ID promocji','Rabat rozliczany z producentem','Rabat IPRA',
          'Wyłączenie z rabatowania','Ilość min.','Uwaga','RKMH','UWAGA','Rabat P+','IPRA vs P+']
 
-IPRA_WHA_m = IPRA_WHA_m[kIPRA]
+#IPRA_WHA_m = IPRA_WHA_m[kIPRA]
 EO_m = EO[kEO]
 
 IPRA_WHA_m
