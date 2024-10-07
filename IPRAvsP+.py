@@ -224,6 +224,7 @@ IPRA_WHA
 
 
 
+'''
 
 
     poprzedni = poprzedni.rename(columns={'max_percent': 'old_percent'})
