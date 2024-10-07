@@ -97,8 +97,7 @@ if IPRA:
     st.write(IPRA_WHA.head())
 
 IPRA_WHA
-IPRA_WHA = IPRA_WHA[IPRA_WHA['Rabat IPRA'].str.contains('%', na=False)]
-IPRA_WHA
+
 
 
 
