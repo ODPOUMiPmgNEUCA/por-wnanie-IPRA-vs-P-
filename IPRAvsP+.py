@@ -148,6 +148,13 @@ df_merged2['IPRA WHA vs P+'] = np.where(
     np.nan,  # Zwróć NaN, jeśli którakolwiek kolumna ma NaN
     np.where(df_merged2['Rabat P+'] >= df_merged2['Rabat IPRA'], 1, 0)  # W przeciwnym razie wykonaj porównanie
 )
+df_merged2['EO vs P+'] = np.where(
+    df_merged2['Rabat P+'].isna() | df_merged2['Rabat EO'].isna(),  # Sprawdź, czy którakolwiek z kolumn ma NaN
+    np.nan,  # Zwróć NaN, jeśli którakolwiek kolumna ma NaN
+    np.where(df_merged2['Rabat P+'] >= df_merged2['Rabat EO'], 1, 0)  # W przeciwnym razie wykonaj porównanie
+)
+
+
 df_merged2
 
 
