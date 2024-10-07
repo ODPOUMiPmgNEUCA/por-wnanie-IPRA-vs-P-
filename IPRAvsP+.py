@@ -187,7 +187,7 @@ kIPRA = ['Indeks', 'Nazwa', 'Producent', 'data rozpoczęcia promocji', 'data zak
          'Id Materiału', 'Rabat P+', 'IPRA vs P+']
 
 
-EO_m
+IPRA_WHA_m
 
 
 '''
