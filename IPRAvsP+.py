@@ -62,19 +62,22 @@ if df:
     df = pd.read_csv(df)
     st.write(df.head())
 '''
+
 # Wybieranie tylko określonych kolumn z DataFrame
 kolumny = [
     'Nazwa Promocji', 'Nr producenta sprzedażowego', 'Nazwa producenta sprzedażowego',
     'Skład (SPR,SGL)', 'Czy dopuszcza rabat kontraktowy', 'Id Materiału', 
     'Nazwa Materiału', 'Rabat P+'
 ]
+df
+'''
 
 # Filtruj kolumny w DataFrame
 df = df[kolumny]
 df = df[(df['Nazwa promocji'].str.contains('P\+') | df['Nazwa promocji'].str.contains('PARTNER')) &  ~df['Nazwa promocji'].str.contains('WTP\+')]
 df
 
-
+'''
 
 
 
